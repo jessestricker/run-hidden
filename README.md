@@ -1,2 +1,3 @@
 # run-hidden
-Run programs without creating a console window.
+
+Run a program without creating a console window.
