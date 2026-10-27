@@ -12,9 +12,23 @@ jobs:
       contents: write
       issues: write
       pull-requests: write
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Release Please
         uses: googleapis/release-please-action@v5.0.0
+        id: release
         with:
           release-type: rust
+
+      # build and upload binary
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+        if: ${{ steps.release.outputs.release_created }}
+      - name: Build
+        run: cargo build --release --verbose
+        if: ${{ steps.release.outputs.release_created }}
+      - name: Upload
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload ${{ steps.release.outputs.tag_name }} target/release/run-hidden.exe
+        if: ${{ steps.release.outputs.release_created }}
