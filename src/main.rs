@@ -12,7 +12,7 @@ fn main() -> ExitCode {
     unsafe { TRACELOGGING_PROVIDER.register() };
 
     let exit_code = run().unwrap_or_else(|err| {
-        let message = format!("{}", err);
+        let message = format!("{:?}", err);
         write_event!(
             TRACELOGGING_PROVIDER,
             "Error",
