@@ -36,6 +36,7 @@ fn run() -> Result<ExitCode, Error> {
     let program = passed_command_line
         .next()
         .ok_or_else(|| anyhow!("Command line arguments must provide program to run."))?;
+    let args: Vec<_> = passed_command_line.collect();
 
     let status = Command::new(program)
         .args(args)
