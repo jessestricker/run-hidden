@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/jessestricker/run-hidden/compare/v0.1.2...v0.1.3) (2026-10-30)
+
+
+### Bug Fixes
+
+* compilation ([98f8d29](https://github.com/jessestricker/run-hidden/commit/98f8d29af527121d6a11e04de2bf96ed371ad15c))
+
 ## [0.1.2](https://github.com/jessestricker/run-hidden/compare/v0.1.1...v0.1.2) (2026-10-30)
 
 
