@@ -1,6 +1,7 @@
 #![windows_subsystem = "windows"]
 
 use std::env;
+use std::os::windows::process::CommandExt;
 use std::process::{Command, ExitCode};
 
 use anyhow::{Context, Error, anyhow};
@@ -28,13 +29,17 @@ fn main() -> ExitCode {
 }
 
 fn run() -> Result<ExitCode, Error> {
+    // https://learn.microsoft.com/en-us/windows/win32/procthread/process-creation-flags
+    const CREATE_NO_WINDOW: u32 = 0x08000000;
+
     let mut passed_command_line = env::args_os().skip(1);
     let program = passed_command_line
         .next()
         .ok_or_else(|| anyhow!("Command line arguments must provide program to run."))?;
 
     let status = Command::new(program)
-        .args(passed_command_line)
+        .args(args)
+        .creation_flags(CREATE_NO_WINDOW)
         .status()
         .with_context(|| "Failed to start or wait on child process.")?;
 
