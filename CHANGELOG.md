@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.2](https://github.com/jessestricker/run-hidden/compare/v0.1.1...v0.1.2) (2026-10-30)
+
+
+### Bug Fixes
+
+* hide window of child process ([1a168ce](https://github.com/jessestricker/run-hidden/commit/1a168ce05771485e051acf9a5ed85021616ae2be))
+* log full errors ([0b9589f](https://github.com/jessestricker/run-hidden/commit/0b9589fc43516df2857d6a19a0aff608f5a32060))
+
 ## [0.1.1](https://github.com/jessestricker/run-hidden/compare/v0.1.0...v0.1.1) (2026-10-27)
 
 
